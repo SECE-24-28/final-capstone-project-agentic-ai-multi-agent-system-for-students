@@ -1,0 +1,436 @@
+[
+  {
+    "project_type": "E-Commerce or Marketplace Platform",
+    "description": "Platforms requiring secure checkouts, product management, and high-performance image rendering.",
+    "recommended_stack": {
+      "frontend": "Next.js with Tailwind CSS",
+      "backend": "Next.js API Routes or Node.js",
+      "database": "Supabase (PostgreSQL)",
+      "storage": "Cloudflare R2",
+      "deployment_and_ci_cd": "Vercel or AWS with GitHub Actions"
+    },
+    "core_mvp_features": [
+      "User Authentication",
+      "Product Catalog",
+      "Shopping Cart/Checkout Flow",
+      "Admin Dashboard"
+    ]
+  },
+  {
+    "project_type": "Complex Data/SaaS Application",
+    "description": "Web applications that require heavy relational data, complex API integrations, or real-time updates.",
+    "recommended_stack": {
+      "frontend": "React",
+      "backend": "Express and Node.js",
+      "database": "MongoDB",
+      "orchestration": "Docker and Kubernetes",
+      "deployment_and_ci_cd": "AWS (EC2/ECS) using GitHub Actions CI/CD"
+    },
+    "core_mvp_features": [
+      "JWT Authentication",
+      "CRUD Operations",
+      "Data Dashboard",
+      "API Rate Limiting"
+    ]
+  },
+  {
+    "project_type": "Productivity Tool or Browser Extension",
+    "description": "Tools designed to integrate directly into a user's workflow or browser for maximum engagement.",
+    "recommended_stack": {
+      "frontend": "HTML/CSS/JavaScript or React",
+      "background": "Chrome Extensions API (Service Workers, LocalStorage)",
+      "backend": "Lightweight Node.js Server (only if external data is needed)",
+      "deployment_and_ci_cd": "Chrome Web Store Developer Dashboard"
+    },
+    "core_mvp_features": [
+      "Onboarding Flow",
+      "Core Productivity Interaction",
+      "Local Data Sync",
+      "Gamification/Progress Tracking"
+    ]
+  },
+  {
+    "project_type": "AI Document Analyzer & LegalTech Tool",
+    "description": "Applications that ingest massive unstructured documents (PDFs, contracts), extract key clauses, perform compliance checks, and offer conversational retrieval.",
+    "recommended_stack": {
+      "frontend": "Next.js with TypeScript and Tailwind CSS",
+      "backend": "FastAPI (Python) for asynchronous processing",
+      "vector_database": "ChromaDB or Pinecone",
+      "database": "PostgreSQL (Supabase)",
+      "storage": "AWS S3 or Cloudflare R2",
+      "deployment_and_ci_cd": "Docker containers hosted on AWS ECS, automated with GitHub Actions"
+    },
+    "core_mvp_features": [
+      "Secure PDF/Docx File Upload",
+      "AI-Powered Document Summarization & Clause Classification",
+      "Contextual RAG Chat Interface over Uploaded Documents",
+      "Exportable Compliance & Risk Report Generation"
+    ]
+  },
+  {
+    "project_type": "IoT Monitoring & Smart Dashboard",
+    "description": "Platforms handling time-series data streams from edge devices, agricultural sensors, or smart cities requiring real-time visual alerts.",
+    "recommended_stack": {
+      "frontend": "React with Tremor or Recharts for heavy data viz",
+      "backend": "Node.js (NestJS) with WebSockets support",
+      "database": "TimescaleDB (PostgreSQL extension for time-series data)",
+      "caching_and_broker": "Redis for session data, MQTT/RabbitMQ for data ingestion",
+      "deployment_and_ci_cd": "AWS EC2 instances orchestrated with Docker Compose, monitored via Grafana"
+    },
+    "core_mvp_features": [
+      "Real-time Telemetry Data Streams via WebSockets",
+      "Interactive Device Management (Register/Deactivate Devices)",
+      "Custom Threshold Alert Thresholds & Webhook Notifications",
+      "Historical Analytical Graphs & Trend Reports"
+    ]
+  },
+  {
+    "project_type": "Social Media & Community App",
+    "description": "Niche community networks, creator marketplaces, or specialized professional forums handling media sharing and interactive messaging.",
+    "recommended_stack": {
+      "frontend": "React Native (for Cross-Platform Mobile) or Expo",
+      "backend": "Node.js (Express) or Go (Golang) for high throughput",
+      "database": "MongoDB or PostgreSQL",
+      "storage": "Cloudflare R2 for fast asset delivery and image optimization",
+      "deployment_and_ci_cd": "Render or AWS App Runner with GitHub Actions CI/CD"
+    },
+    "core_mvp_features": [
+      "User Profiles & Secure Authentication (OAuth/Magic Links)",
+      "Dynamic Content Feed (Text, Images, Video) with Pagination",
+      "Real-time Direct Messaging & Comments using WebSockets",
+      "Content Moderation Filter & Report Flagging Actions"
+    ]
+  },
+  {
+    "project_type": "Telehealth & Clinic Appointment Booking System",
+    "description": "Patient care portals, automated scheduling networks, and secure digital consultation systems handling real-time appointments.",
+    "recommended_stack": {
+      "frontend": "Next.js with Tailwind CSS",
+      "backend": "Express with Node.js",
+      "database": "PostgreSQL with Prisma ORM",
+      "video_infrastructure": "Daily.co API or Agora SDK for embedded WebRTC",
+      "deployment_and_ci_cd": "Vercel for Frontend, Render/Railway for Backend with GitHub Actions"
+    },
+    "core_mvp_features": [
+      "Doctor Directory with Smart Availability Calendars",
+      "Real-time Appointment Slot Booking & Automated Email Notifications",
+      "In-App WebRTC Video Consultation Rooms",
+      "Secure Patient Prescription & Medical History Vault"
+    ]
+  },
+  {
+    "project_type": "EdTech Learning Management System (LMS)",
+    "description": "Course deployment hubs, interactive quiz structures, and progress trackers utilizing micro-learning concepts and gamified metrics.",
+    "recommended_stack": {
+      "frontend": "Next.js or Vue.js",
+      "backend": "Django (Python) or Express (Node.js)",
+      "database": "PostgreSQL for relational models (students, modules, scores)",
+      "storage": "AWS S3 with CloudFront CDN for video lectures",
+      "deployment_and_ci_cd": "DigitalOcean Droplets with App Platform and GitHub Actions"
+    },
+    "core_mvp_features": [
+      "Course Path Hierarchies (Modules, Videos, Code Snippets)",
+      "Interactive Quiz Engine with Instant Assessment Analytics",
+      "Gamified Dashboard (Daily Streaks, Badges, XP Systems)",
+      "Automated Completion Certificate Generator"
+    ]
+  },
+  {
+    "project_type": "FinTech Expense Tracker & Micro-Investment App",
+    "description": "Financial management utilities processing microtransactions, asset charts, and secure integration with traditional banking open APIs.",
+    "recommended_stack": {
+      "frontend": "Flutter (Mobile) or React with Tailwind CSS",
+      "backend": "FastAPI (Python) for robust data modeling and security utilities",
+      "database": "Supabase PostgreSQL with strict Row Level Security (RLS)",
+      "banking_api": "Plaid API or Finicity for bank sync simulations",
+      "deployment_and_ci_cd": "AWS Elastic Beanstalk, Docker, and GitHub Actions"
+    },
+    "core_mvp_features": [
+      "Secure Bank Account Syncing (or Mock CSV Import Engine)",
+      "Automated AI Transaction Categorization & Budget Progress Bars",
+      "Recurring Financial Goal Tracking & Analytics",
+      "High-Fidelity Investment Asset Value Graphing"
+    ]
+  },
+  {
+    "project_type": "Logistics & Supply Chain Tracker",
+    "description": "Inventory distribution maps, fulfillment network metrics, and route planning monitors for delivery dispatch applications.",
+    "recommended_stack": {
+      "frontend": "React with Mapbox GL or Google Maps API",
+      "backend": "Go (Golang) or Node.js for low-latency calculations",
+      "database": "PostgreSQL with PostGIS extension for geospatial mapping queries",
+      "deployment_and_ci_cd": "AWS ECS using Fargate, orchestrated with Docker and GitHub Actions"
+    },
+    "core_mvp_features": [
+      "Real-time Map Tracking for Orders & Fleet Locations",
+      "Warehouse Inventory Manager (Stock Levels, Alerts, Low-stock Triggers)",
+      "Dynamic Route Optimization Calculation for Drivers",
+      "Digital Proof-of-Delivery Capture (QR Code Scan/Signature)"
+    ]
+  },
+  {
+    "project_type": "Real-time B2B SaaS Collaboration Tool",
+    "description": "Digital kanbans, concurrent multi-user collaborative editors, and asset tracking workflows mapping enterprise operational processes.",
+    "recommended_stack": {
+      "frontend": "Next.js with TypeScript",
+      "backend": "Node.js with Socket.io or Elixir Phoenix for heavy real-time operations",
+      "database": "MongoDB or PostgreSQL",
+      "caching": "Redis for fast pub/sub data relaying",
+      "deployment_and_ci_cd": "Railway or AWS, automated using GitHub Actions pipelines"
+    },
+    "core_mvp_features": [
+      "Interactive Workspace Creation & Multi-user Workspace Invites",
+      "Drag-and-Drop Project Boards (Kanban/Sprint Tracking Grid)",
+      "Real-time Multi-user Document Editing with Presence Indicators",
+      "Activity Logs & Historical Version-Control Audits"
+    ]
+  },
+  {
+    "project_type": "Web3 Marketplace & Decentralized App (dApp)",
+    "description": "Platforms facilitating asset tracking, tokenized ledger systems, and blockchain-grounded verification architectures.",
+    "recommended_stack": {
+      "frontend": "Next.js with RainbowKit and Wagmi React Hooks",
+      "blockchain_tools": "Hardhat or Foundry, Ethers.js, Solidity for Smart Contracts",
+      "database": "The Graph (for indexing blockchain events) + Supabase",
+      "storage": "IPFS via Pinata for decentralized asset storage",
+      "deployment_and_ci_cd": "Vercel for Frontend, Smart contracts verified via Etherscan CI scripts"
+    },
+    "core_mvp_features": [
+      "Web3 Wallet Integration (MetaMask, WalletConnect, Coinbase Wallet)",
+      "Smart-Contract Interaction Portal (Minting, Transfers, Trades)",
+      "Decentralized Asset Registry & IPFS Metadata Integration",
+      "On-Chain Event Tracking & Aggregated Activity Dashboard"
+    ]
+  },
+  {
+    "project_type": "AI-Powered Customer Support Automation",
+    "description": "Intelligent automated ticketing systems, instant routing matrices, and agent assistance overlays built for active operational teams.",
+    "recommended_stack": {
+      "frontend": "React with Tailwind CSS",
+      "backend": "FastAPI (Python)",
+      "vector_database": "Qdrant or ChromaDB for knowledge base indexing",
+      "database": "PostgreSQL",
+      "deployment_and_ci_cd": "Google Cloud Platform (GCP) Run, Docker, and GitHub Actions"
+    },
+    "core_mvp_features": [
+      "Omnichannel Chat Widget (Embeddable Script for External Sites)",
+      "Automated Knowledge Base Ingestion Engine (FAQs, Manuals)",
+      "Context-Aware Chatbot with Human Agent Fallback Routing",
+      "Sentiment Tracking Analytics & SLA Response Time Grids"
+    ]
+  },
+  {
+    "project_type": "Real Estate & Property Listing Portal",
+    "description": "High-fidelity mapping platforms connecting buyers, renters, and agents with advanced filtering and virtual tour integrations.",
+    "recommended_stack": {
+      "frontend": "Next.js with Tailwind CSS",
+      "backend": "Node.js (Express)",
+      "database": "PostgreSQL with PostGIS for spatial queries",
+      "storage": "AWS S3 for high-res property images",
+      "deployment_and_ci_cd": "Vercel and Render"
+    },
+    "core_mvp_features": [
+      "Advanced Search with Geo-radius Filtering",
+      "Property Image Galleries & Video Tour Links",
+      "User Saved Searches & Alert Notifications",
+      "Agent Contact Form & Lead Generation Dashboard"
+    ]
+  },
+  {
+    "project_type": "Fitness & Workout Tracking App",
+    "description": "Mobile-first applications for tracking physical routines, calculating metrics, and managing diet plans with offline capabilities.",
+    "recommended_stack": {
+      "frontend": "React Native or Flutter",
+      "backend": "Firebase Backend-as-a-Service (BaaS)",
+      "database": "Firestore (NoSQL)",
+      "caching": "AsyncStorage / SQLite for offline mode",
+      "deployment_and_ci_cd": "Expo Application Services (EAS) for seamless App Store delivery"
+    },
+    "core_mvp_features": [
+      "Custom Routine Builder",
+      "Live Workout Timer & Rep Counter",
+      "Progress Analytics Charting",
+      "Offline Sync Capabilities"
+    ]
+  },
+  {
+    "project_type": "Freelance & Gig Economy Marketplace",
+    "description": "Two-sided networks facilitating contract work, escrow payments, and portfolio showcasing.",
+    "recommended_stack": {
+      "frontend": "React",
+      "backend": "Node.js with Express",
+      "database": "MongoDB",
+      "payments": "Stripe Connect for split payments",
+      "deployment_and_ci_cd": "AWS EC2 and GitHub Actions"
+    },
+    "core_mvp_features": [
+      "Dual User Roles (Freelancer vs. Client)",
+      "Job Posting & Bidding System",
+      "In-App Messaging & File Sharing",
+      "Secure Escrow Payment Flow"
+    ]
+  },
+  {
+    "project_type": "Event Management & Ticketing Platform",
+    "description": "High-traffic portals for generating, distributing, and validating digital tickets via QR codes.",
+    "recommended_stack": {
+      "frontend": "Next.js",
+      "backend": "Next.js API Routes",
+      "database": "PostgreSQL with Prisma ORM",
+      "payments": "Stripe Checkout",
+      "deployment_and_ci_cd": "Vercel with edge caching"
+    },
+    "core_mvp_features": [
+      "Dynamic Event Pages",
+      "Tiered Ticket Purchasing",
+      "Automated QR Code Generation & Emailing",
+      "Admin Scanner Interface for Door Entry"
+    ]
+  },
+  {
+    "project_type": "Subscription Box & Recurring E-commerce",
+    "description": "Curated monthly delivery platforms requiring robust customer lifecycle and billing management.",
+    "recommended_stack": {
+      "frontend": "React with Tailwind CSS",
+      "backend": "Node.js",
+      "database": "Supabase (PostgreSQL)",
+      "payments": "Stripe Billing API",
+      "deployment_and_ci_cd": "AWS Amplify"
+    },
+    "core_mvp_features": [
+      "Tiered Subscription Plan Selection",
+      "Customer Portal for Pausing/Canceling",
+      "Automated Monthly Billing Cycles",
+      "Fulfillment Export Dashboard"
+    ]
+  },
+  {
+    "project_type": "Podcast & Audio Streaming Platform",
+    "description": "Media-heavy applications requiring continuous background playback, RSS feed generation, and large file chunking.",
+    "recommended_stack": {
+      "frontend": "React with Howler.js for audio management",
+      "backend": "Express (Node.js)",
+      "database": "MongoDB",
+      "storage": "AWS S3 with CloudFront CDN",
+      "deployment_and_ci_cd": "DigitalOcean App Platform"
+    },
+    "core_mvp_features": [
+      "Continuous Audio Player State (cross-navigation)",
+      "Episode Upload & RSS Feed Generator",
+      "User Playlists & Favorites",
+      "Basic Listening Analytics"
+    ]
+  },
+  {
+    "project_type": "AI Media Generation Wrapper",
+    "description": "Lightweight applications orchestrating third-party AI models for text-to-image or text-to-video capabilities.",
+    "recommended_stack": {
+      "frontend": "Next.js with Tailwind CSS",
+      "backend": "Next.js API Routes",
+      "ai_api": "Replicate, OpenAI API, or Stability AI",
+      "database": "Supabase (PostgreSQL)",
+      "deployment_and_ci_cd": "Vercel"
+    },
+    "core_mvp_features": [
+      "Prompt Input Interface with Parameter Sliders",
+      "Webhook Listener for Asynchronous Image Generation",
+      "User Gallery & Generation History",
+      "Credit-based Payment System"
+    ]
+  },
+  {
+    "project_type": "CRM (Customer Relationship Management) for SMBs",
+    "description": "Data-dense interfaces for managing sales pipelines, lead communications, and task assignments.",
+    "recommended_stack": {
+      "frontend": "Vue.js 3 with Pinia",
+      "backend": "Laravel (PHP) or Node.js (NestJS)",
+      "database": "MySQL or PostgreSQL",
+      "deployment_and_ci_cd": "AWS RDS and ECS"
+    },
+    "core_mvp_features": [
+      "Kanban Pipeline Drag-and-Drop",
+      "Contact & Lead Database",
+      "Activity/Interaction Logging",
+      "Basic Sales Reporting"
+    ]
+  },
+  {
+    "project_type": "Recipe & Meal Planning Application",
+    "description": "Content-rich applications featuring complex filtering by dietary restrictions and automated grocery list generation.",
+    "recommended_stack": {
+      "frontend": "Flutter",
+      "backend": "Supabase BaaS",
+      "database": "PostgreSQL (via Supabase)",
+      "deployment_and_ci_cd": "GitHub Actions to Google Play / App Store"
+    },
+    "core_mvp_features": [
+      "Searchable Recipe Database with Macro Filters",
+      "Weekly Drag-and-Drop Meal Calendar",
+      "Automated Grocery List Aggregator",
+      "User Uploads for Custom Recipes"
+    ]
+  },
+  {
+    "project_type": "Crowdfunding & Donation Platform",
+    "description": "Campaign management systems ensuring secure pooling of capital and progress tracking.",
+    "recommended_stack": {
+      "frontend": "Next.js",
+      "backend": "Node.js (Express)",
+      "database": "MongoDB",
+      "payments": "Stripe Connect or PayPal Payouts",
+      "deployment_and_ci_cd": "Heroku or Render"
+    },
+    "core_mvp_features": [
+      "Campaign Creation Wizard",
+      "Financial Progress Bars & Milestone Trackers",
+      "Secure Tiered Backer Payments",
+      "Creator Update Logs"
+    ]
+  },
+  {
+    "project_type": "HR & Applicant Tracking System (ATS)",
+    "description": "Enterprise-lite software for parsing resumes, managing interview stages, and internal team collaboration.",
+    "recommended_stack": {
+      "frontend": "React",
+      "backend": "NestJS (Node.js) with TypeScript",
+      "database": "PostgreSQL",
+      "file_processing": "AWS Textract or PDF.js for resume parsing",
+      "deployment_and_ci_cd": "AWS EC2 via Docker Compose"
+    },
+    "core_mvp_features": [
+      "Customizable Job Board Pages",
+      "Automated Resume Parsing (Keyword Extraction)",
+      "Candidate Pipeline Management",
+      "Team Interview Feedback Forms"
+    ]
+  },
+  {
+    "project_type": "Language Learning & Flashcard App",
+    "description": "Spaced repetition systems (SRS) requiring complex algorithms for review intervals and multimedia support.",
+    "recommended_stack": {
+      "frontend": "React with IndexedDB for local storage",
+      "backend": "Django (Python) or Node.js",
+      "database": "PostgreSQL",
+      "deployment_and_ci_cd": "Vercel (Front) and Railway (Back)"
+    },
+    "core_mvp_features": [
+      "Deck Creation & Card Tagging",
+      "Spaced Repetition Algorithm (e.g., SuperMemo 2 logic)",
+      "Audio/Image Attachment to Cards",
+      "Daily Review Streaks & Progress Stats"
+    ]
+  },
+  {
+    "project_type": "Travel & Itinerary Planner",
+    "description": "Collaborative map-based planning tools connecting destination data with calendar systems.",
+    "recommended_stack": {
+      "frontend": "Next.js with Mapbox GL JS",
+      "backend": "Node.js",
+      "database": "MongoDB",
+      "deployment_and_ci_cd": "AWS Amplify"
+    },
+    "core_mvp_features": [
+      "Interactive Map with Pin Dropping",
+      "Day-by-Day Timeline Builder",
+      "Multi-user Editing Capabilities",
+      "Expense Splitting/
