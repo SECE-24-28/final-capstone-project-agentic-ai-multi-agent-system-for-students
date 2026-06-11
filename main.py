@@ -45,48 +45,36 @@ def main():
     print("RUNNING AGENT 2")
     print("=" * 80)
 
-    if blueprint:
+    fallback_startup = {
 
-        agent2_result = market_research_agent(
-            blueprint=blueprint
-        )
+    "startup_name":
+    "CurricuLabs AI",
 
-    else:
+    "problem":
+    "Teachers spend too much time creating personalized content",
 
-        print(
-            "\nAgent 1 failed. Using fallback startup.\n"
-        )
+    "solution":
+    "AI powered content generation",
 
-        fallback_startup = {
+    "target_users":
+    "Teachers",
 
-            "startup_name":
-            "CurricuLabs AI",
+    "skills":
+    "Python, React",
 
-            "problem":
-            "Teachers spend too much time creating personalized content",
+    "experience":
+    "Student",
 
-            "solution":
-            "AI powered content generation",
+    "budget":
+    "Low",
 
-            "target_users":
-            "Teachers",
+    "goal":
+    "Build SaaS Startup"
+}
 
-            "skills":
-            "Python, React",
-
-            "experience":
-            "Student",
-
-            "budget":
-            "Low",
-
-            "goal":
-            "Build SaaS Startup"
-        }
-
-        agent2_result = market_research_agent(
-            startup_idea=fallback_startup
-        )
+    agent2_result = market_research_agent(
+    startup_idea=fallback_startup
+    )
 
     print("\n" + "=" * 80)
     print("FINAL VALIDATED STARTUP")
@@ -126,22 +114,14 @@ def main():
     print("=" * 80)
 
     startup_context = {
-
-        "startup_name":
-        "CurricuLabs AI",
-
-        "problem":
-        "Teachers spend too much time creating personalized content",
-
-        "solution":
-        "AI powered content generation",
-
-        "target_users":
-        "Teachers"
-    }
+    "startup_name": "Generated Startup",
+    "problem": str(blueprint),
+    "solution": str(blueprint),
+    "target_users": "Students"
+}   
 
     agent3_result = mvp_planner_agent(
-        startup_context
+        startup_context ,user_profile
     )
 
     print("\n" + "=" * 80)
