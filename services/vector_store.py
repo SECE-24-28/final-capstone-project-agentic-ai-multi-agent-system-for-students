@@ -221,4 +221,3 @@ if __name__ == "__main__":
         print(startup[:500])
 
         print("=" * 80)
-
