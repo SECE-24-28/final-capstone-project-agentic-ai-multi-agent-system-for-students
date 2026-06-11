@@ -106,8 +106,40 @@ def resolve_input(
                     e
                 )
 
-    return startup_idea
+    if startup_idea:
 
+        return startup_idea
+
+    print(
+        "Blueprint parsing failed. Using fallback startup."
+    )
+
+    return {
+
+        "startup_name":
+        "Fallback Startup",
+
+        "problem":
+        "Education content creation is time consuming",
+
+        "solution":
+        "AI powered content generation",
+
+        "target_users":
+        "Teachers",
+
+        "skills":
+        "Python, React",
+
+        "experience":
+        "Student",
+
+        "budget":
+        "Low",
+
+        "goal":
+        "Build SaaS Startup"
+    }
 # ==========================================
 # STACKOVERFLOW AGENT
 # ==========================================
@@ -480,6 +512,9 @@ def market_research_agent(
         startup_idea,
         blueprint
     )
+    print("\nSTARTUP CONTEXT:")
+    print(startup_context)
+    print(type(startup_context))
 
     print(
         "Searching StackOverflow..."
