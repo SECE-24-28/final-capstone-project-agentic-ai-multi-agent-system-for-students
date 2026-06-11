@@ -1,5 +1,5 @@
 import os
-
+import time
 from google import genai
 from dotenv import load_dotenv
 
@@ -11,19 +11,32 @@ client = genai.Client(
     )
 )
 
+
+
 def generate(prompt):
 
-    try:
+    for attempt in range(3):
 
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt
-        )
+        try:
 
-        return response.text
+            response = client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt
+            )
 
-    except Exception as e:
+            return response.text
 
-        print("ERROR:", e)
+        except Exception as e:
 
-        return ""
+            print(
+                f"ERROR (Attempt {attempt+1}/3):",
+                e
+            )
+
+            time.sleep(5)
+
+    return """
+{
+    "status": "generation_failed"
+}
+"""
