@@ -1,6 +1,6 @@
-
 from agents.agent1 import startup_discovery_agent
 from agents.market_research_agent import market_research_agent
+from agents.mvp_planner_agent import mvp_planner_agent
 
 
 def main():
@@ -34,6 +34,7 @@ def main():
     blueprint = agent1_result.get(
         "blueprint"
     )
+
     print("\nBLUEPRINT TYPE:")
     print(type(blueprint))
 
@@ -82,7 +83,7 @@ def main():
             "goal":
             "Build SaaS Startup"
         }
-        
+
         agent2_result = market_research_agent(
             startup_idea=fallback_startup
         )
@@ -92,9 +93,7 @@ def main():
     print("=" * 80)
 
     print("\nSTARTUP BLUEPRINT:\n")
-    print(
-        blueprint
-    )
+    print(blueprint)
 
     print("\n" + "=" * 80)
 
@@ -118,7 +117,51 @@ def main():
 
     print("\n" + "=" * 80)
 
+    # ==========================
+    # AGENT 3
+    # ==========================
+
+    print("\n" + "=" * 80)
+    print("RUNNING AGENT 3")
+    print("=" * 80)
+
+    startup_context = {
+
+        "startup_name":
+        "CurricuLabs AI",
+
+        "problem":
+        "Teachers spend too much time creating personalized content",
+
+        "solution":
+        "AI powered content generation",
+
+        "target_users":
+        "Teachers"
+    }
+
+    agent3_result = mvp_planner_agent(
+        startup_context
+    )
+
+    print("\n" + "=" * 80)
+    print("STARTUP ARCHITECT REPORT")
+    print("=" * 80)
+
+    for key, value in agent3_result.items():
+
+        print("\n")
+        print("=" * 80)
+        print(key.upper())
+        print("=" * 80)
+
+        print(value)
+
+    print("\n")
+    print("=" * 80)
+    print("PIPELINE COMPLETED SUCCESSFULLY")
+    print("=" * 80)
+
 
 if __name__ == "__main__":
     main()
-
