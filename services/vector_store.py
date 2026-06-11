@@ -193,7 +193,7 @@ def store_documents():
 
 def retrieve_startups(
     query,
-    n_results=5
+    n_results=10
 ):
 
     results = collection.query(
@@ -221,4 +221,3 @@ if __name__ == "__main__":
         print(startup[:500])
 
         print("=" * 80)
-
