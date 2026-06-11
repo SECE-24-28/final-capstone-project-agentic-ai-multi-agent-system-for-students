@@ -1,3 +1,4 @@
+
 from agents.agent1 import startup_discovery_agent
 from agents.market_research_agent import market_research_agent
 
@@ -33,6 +34,11 @@ def main():
     blueprint = agent1_result.get(
         "blueprint"
     )
+    print("\nBLUEPRINT TYPE:")
+    print(type(blueprint))
+
+    print("\nBLUEPRINT:")
+    print(blueprint)
 
     print("\n" + "=" * 80)
     print("RUNNING AGENT 2")
@@ -76,7 +82,7 @@ def main():
             "goal":
             "Build SaaS Startup"
         }
-
+        
         agent2_result = market_research_agent(
             startup_idea=fallback_startup
         )
@@ -115,3 +121,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
