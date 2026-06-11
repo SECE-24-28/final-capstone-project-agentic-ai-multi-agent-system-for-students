@@ -12,7 +12,7 @@ def retrieve_yc_context(startup_context):
 
     return retrieve_startups(
         query=query,
-        n_results=10
+        n_results=5
     )
 
 
@@ -50,28 +50,41 @@ def tech_stack_agent(
     yc_docs
 ):
 
-    docs_text = "\n\n".join(yc_docs)
+    docs_text = "\n\n".join(
+        yc_docs
+    )
 
     prompt = f"""
+You are a principal startup architect.
+
 Startup:
 {startup_context}
 
 Similar YC Startups:
 {docs_text}
 
-Design best production-ready stack.
+Prioritize:
 
-Prefer:
 - Python
 - FastAPI
 - PostgreSQL
 - ChromaDB
 
+Optimize for:
+
+- Solo founder
+- Low budget
+- Fast MVP
+- High scalability
+
+Avoid enterprise tools.
+Avoid expensive services.
+Avoid NodeJS unless necessary.
+
 Return ONLY valid JSON.
 """
 
     return generate(prompt)
-
 
 def database_agent(
     startup_context,
@@ -231,10 +244,13 @@ Return ONLY valid JSON.
 def buildability_agent(
     startup_context,
     features,
-    tech_stack
+    tech_stack,
+    user_profile
 ):
 
     prompt = f"""
+You are a senior startup CTO evaluating whether a founder can realistically build this startup.
+
 Startup:
 {startup_context}
 
@@ -244,12 +260,35 @@ Features:
 Tech Stack:
 {tech_stack}
 
-Evaluate:
+Founder Profile:
+{user_profile}
 
-1. Buildability Score
+Evaluate based on:
+
+1. Founder Skills
+2. Experience Level
+3. Budget Constraints
+4. Technical Complexity
+5. Team Requirements
+
+Generate:
+
+1. Buildability Score (1-10)
 2. Time To MVP
-3. Team Size
+3. Recommended Team Size
 4. Technical Difficulty
+5. Biggest Technical Challenges
+6. Biggest Founder Challenges
+7. Recommended MVP Scope
+8. Build Recommendation
+
+Scoring Criteria:
+
+- Skills Match
+- Experience Match
+- Budget Fit
+- Development Complexity
+- Speed To Launch
 
 Return ONLY valid JSON.
 """
@@ -321,9 +360,37 @@ Return ONLY valid JSON.
 
     return generate(prompt)
 
+def success_probability_agent(
+    startup_context,
+    founder_fit,
+    investor_readiness
+):
+
+    prompt = f"""
+Startup:
+{startup_context}
+
+Founder Fit:
+{founder_fit}
+
+Investor Readiness:
+{investor_readiness}
+
+Evaluate:
+
+1. Success Probability (0-100)
+2. Biggest Opportunity
+3. Biggest Risk
+4. Recommendation
+
+Return ONLY valid JSON.
+"""
+
+    return generate(prompt)
 
 def mvp_planner_agent(
-    startup_idea
+    startup_idea,
+    user_profile
 ):
 
     print("Retrieving YC Startups...")
@@ -385,9 +452,10 @@ def mvp_planner_agent(
 
     print("Buildability...")
     buildability = buildability_agent(
-        startup_idea,
-        features,
-        tech_stack
+    startup_idea,
+    features,
+    tech_stack,
+    user_profile
     )
 
     print("Investor Readiness...")
@@ -405,7 +473,13 @@ def mvp_planner_agent(
     launch_strategy = launch_strategy_agent(
         startup_idea
     )
+    print("Success Probability...")
 
+    success_probability = success_probability_agent(
+    startup_idea,
+    founder_fit,
+    investor_readiness
+)
     return {
         "yc_startups": yc_docs,
         "features": features,
@@ -420,7 +494,8 @@ def mvp_planner_agent(
         "buildability": buildability,
         "investor_readiness": investor_readiness,
         "revenue_strategy": revenue_strategy,
-        "launch_strategy": launch_strategy
+        "launch_strategy": launch_strategy,
+        "success_probability": success_probability
     }
 
 
@@ -433,9 +508,41 @@ if __name__ == "__main__":
         "target_users": "Students and Teachers"
     }
 
+    user_profile = {
+
+    "skills":
+    "Python, React",
+
+    "experience":
+    "Student",
+
+    "budget":
+    "Low"
+}
+
     result = mvp_planner_agent(
-        startup
-    )
+    startup,
+    user_profile
+)
+
+    print("\nRetrieved YC Startups:\n")
+
+    for doc in result["yc_startups"]:
+
+        try:
+
+            name = (
+                doc
+                .split("Startup Name:")[1]
+                .split("Industries:")[0]
+                .strip()
+            )
+
+            print("•", name)
+
+        except:
+
+            pass
 
     for key, value in result.items():
 
