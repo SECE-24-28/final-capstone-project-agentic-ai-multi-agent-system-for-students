@@ -1,42 +1,54 @@
 import os
-import time
-from google import genai
+
+from groq import Groq
 from dotenv import load_dotenv
 
 load_dotenv()
 
-client = genai.Client(
+client = Groq(
     api_key=os.getenv(
-        "GEMINI_API_KEY"
+        "GROQ_API_KEY"
     )
 )
 
-
-
 def generate(prompt):
 
-    for attempt in range(3):
+    try:
 
-        try:
+        response = client.chat.completions.create(
 
-            response = client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=prompt
-            )
+            model=
+            "llama-3.3-70b-versatile",
 
-            return response.text
+            messages=[
+                {
+                    "role":
+                    "user",
 
-        except Exception as e:
+                    "content":
+                    prompt
+                }
+            ],
 
-            print(
-                f"ERROR (Attempt {attempt+1}/3):",
-                e
-            )
+            temperature=0.7
+        )
 
-            time.sleep(5)
+        return (
+            response
+            .choices[0]
+            .message
+            .content
+        )
 
-    return """
+    except Exception as e:
+
+        print(
+            "ERROR:",
+            e
+        )
+
+        return """
 {
-    "status": "generation_failed"
+    "status":"generation_failed"
 }
 """
