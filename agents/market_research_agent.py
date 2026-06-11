@@ -9,6 +9,9 @@ import requests
 # INPUT RESOLVER
 # ==========================================
 
+import json
+import re
+
 def resolve_input(
     startup_idea=None,
     blueprint=None
@@ -18,69 +21,90 @@ def resolve_input(
 
         if isinstance(
             blueprint,
+            dict
+        ):
+            return blueprint
+
+        if isinstance(
+            blueprint,
             str
         ):
 
             try:
 
-                blueprint = json.loads(
-                    blueprint
+                match = re.search(
+                    r"```json\s*(.*?)\s*```",
+                    blueprint,
+                    re.DOTALL
                 )
 
-            except:
+                if match:
 
-                return startup_idea
+                    blueprint_json = (
+                        match.group(1)
+                    )
 
-        return {
+                    blueprint = json.loads(
+                        blueprint_json
+                    )
 
-            "startup_name":
-            blueprint.get(
-                "startup_name",
-                ""
-            ),
+                    return {
 
-            "problem":
-            blueprint.get(
-                "problem_statement",
-                ""
-            ),
+                        "startup_name":
+                        blueprint.get(
+                            "startup_name",
+                            ""
+                        ),
 
-            "solution":
-            blueprint.get(
-                "solution",
-                ""
-            ),
+                        "problem":
+                        blueprint.get(
+                            "problem_statement",
+                            ""
+                        ),
 
-            "target_users":
-            blueprint.get(
-                "target_users",
-                ""
-            ),
+                        "solution":
+                        blueprint.get(
+                            "solution",
+                            ""
+                        ),
 
-            "skills":
-            blueprint.get(
-                "skills",
-                "Unknown"
-            ),
+                        "target_users":
+                        blueprint.get(
+                            "target_users",
+                            ""
+                        ),
 
-            "experience":
-            blueprint.get(
-                "experience",
-                "Unknown"
-            ),
+                        "skills":
+                        blueprint.get(
+                            "skills",
+                            "Unknown"
+                        ),
 
-            "budget":
-            blueprint.get(
-                "budget",
-                "Unknown"
-            ),
+                        "experience":
+                        blueprint.get(
+                            "experience",
+                            "Unknown"
+                        ),
 
-            "goal":
-            blueprint.get(
-                "goal",
-                "Unknown"
-            )
-        }
+                        "budget":
+                        blueprint.get(
+                            "budget",
+                            "Unknown"
+                        ),
+
+                        "goal":
+                        blueprint.get(
+                            "goal",
+                            "Unknown"
+                        )
+                    }
+
+            except Exception as e:
+
+                print(
+                    "Blueprint Parse Error:",
+                    e
+                )
 
     return startup_idea
 

@@ -7,4 +7,5 @@ tqdm
 sentence-transformers
 onnxruntime
 pypdf
+qroq
 python-dotenv
