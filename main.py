@@ -1,7 +1,9 @@
 from agents.agent1 import startup_discovery_agent
 from agents.market_research_agent import market_research_agent
 from agents.mvp_planner_agent import mvp_planner_agent
-
+from agents.pitch_deck_agent import (
+    pitch_deck_agent
+)
 
 def main():
 
@@ -141,7 +143,46 @@ def main():
     print("=" * 80)
     print("PIPELINE COMPLETED SUCCESSFULLY")
     print("=" * 80)
+    
+    print("\n" + "=" * 80)
+    
+    print("RUNNING AGENT 4")
+    print("=" * 80)
+    
+    architect_summary = {
 
+    "features":
+    agent3_result.get(
+        "features",
+        ""
+    ),
+
+    "revenue_strategy":
+    agent3_result.get(
+        "revenue_strategy",
+        ""
+    ),
+
+    "success_probability":
+    agent3_result.get(
+        "success_probability",
+        ""
+    )
+}
+    pitch_deck = pitch_deck_agent(
+
+    startup_context,
+
+    agent2_result.get(
+        "validation",
+        ""
+    ),
+
+    architect_summary
+)
+
+    print("\nPITCH DECK\n")
+    print(pitch_deck)
 
 if __name__ == "__main__":
     main()
